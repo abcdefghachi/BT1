@@ -1,0 +1,65 @@
+@font-face {
+    font-family: 'GFT';
+    src: url('fonts/GFSFleischman.otf') format('truetype');
+}
+@font-face {
+    font-family: 'Mackay Bold';
+    src: url('fonts/Rene\ Bieder\ -\ Mackay\ DEMO\ Bold.otf') format('truetype');
+}
+@font-face {
+    font-family: 'Harriet' ;
+    src: url('fonts/HARRIETTEXTREGULAR.OTF') format('truetype');
+}
+@font-face {
+    font-family: 'Basis Grotesque Pro' ;
+    src: url('fonts/BasisGrotesqueArabicPro-Bold.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'NokiaFC22';
+    src: url('fonts/nokiafc22.ttf') format('truetype');
+  }
+header {
+    background-color: rgb(237, 217, 43);
+    height: 300px;
+    position: relative;
+}
+.header-content{
+    position: absolute;
+    top: 30%;
+    left: 10%;        
+}
+.header-content p {
+    font-family: 'Courier New', Courier, monospace;
+}
+.header-content h1{
+    font-size: 130px;
+    margin: -20px auto;
+}
+section{
+    width: 70%;
+    margin-top: 50px ;
+    margin-left: 150px ;
+}
+.content{
+    border-left: 5px solid black;
+    padding-left: 15px;
+}
+h2{
+    font-size: 50px;
+    margin-bottom: -10px;
+}
+.font1 h2{
+    font-family: "GFT" , sans-serif;
+}
+.font2 h2{
+    font-family: "Mackay Bold" , sans-serif;
+}
+.font3 h2{
+    font-family: "Harriet" , sans-serif;
+}
+.font4 h2 {
+    font-family: "Basis Grotesque Pro" , sans-serif;
+}
+.font5 h2{
+    font-family: 'NokiaFC22', sans-serif;    
+}
