@@ -35,6 +35,12 @@ header {
     font-size: 130px;
     margin: -20px auto;
 }
+#body-content p{
+    font-family: Arial, Helvetica, sans-serif;
+}
+#body-content h1{
+    font-size: 30px;
+}
 section{
     width: 70%;
     margin-top: 50px ;
@@ -62,4 +68,13 @@ h2{
 }
 .font5 h2{
     font-family: 'NokiaFC22', sans-serif;    
+}
+@media (max-width: 992px) {
+    header{
+        height: 70vh;
+    }
+    section{
+        width: 90%;
+        margin: auto;
+    }
 }
