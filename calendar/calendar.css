@@ -30,7 +30,7 @@ header .icons span{
 
 header .icons span:hover{
     background-color: #f2f2f2;
-    color: black;
+    color:#000;
     border-radius: 5px;
 }
 
@@ -77,8 +77,10 @@ ul li {
     height: 40px;
     width: 40px;
     content: "";
-    transition: all 0.3s ease;
-
+    transition: all 0.3s ease;   
+}
+.days li:hover {
+    color: #000;
 }
 .days li:hover::before{
     background: #ccc;
