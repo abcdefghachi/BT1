@@ -1,6 +1,9 @@
 const currentDate = document.querySelector("#current-date");
 const day = document.querySelector(".days");
 const nextIcon = document.querySelectorAll(".icons span");
+const todayButton = document.getElementById("today");
+const currentMonthSelect = document.getElementById("current-month-select");
+const currentYearSelect = document.getElementById("current-year-select");
 
 let date = new Date();
 let currentMonth = date.getMonth();
@@ -21,9 +24,41 @@ const months = [
   "December",
 ];
 
+months.forEach((month, index) => {
+  const option = document.createElement("option");
+  option.value = index;
+  option.text = month;
+  currentMonthSelect.add(option);
+});
+
+const startYear = 1900;
+const endYear = 2050;
+
+for (let year = startYear; year <= endYear; year++) {
+  const option = document.createElement("option");
+  option.value = year;
+  const textNode = document.createTextNode(year);
+  option.appendChild(textNode);
+  currentYearSelect.appendChild(option);
+}
+
+currentMonthSelect.value = currentMonth;
+currentYearSelect.value = currentYear;
+
+currentMonthSelect.addEventListener("change", () => {
+  currentMonth = parseInt(currentMonthSelect.value);
+  calendar();
+});
+
+currentYearSelect.addEventListener("change", () => {
+  currentYear = parseInt(currentYearSelect.value);
+  calendar();
+});
+
 const calendar = () => {
+  let selectedDate = new Date(currentYear, currentMonth, 1);
   let lastDateOfMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
-  let firstDayOfMonth = new Date(currentYear, currentMonth, 1).getDay();
+  let firstDayOfMonth = selectedDate.getDay();
   let lastDayOfMonth = new Date(
     currentYear,
     currentMonth,
@@ -32,7 +67,6 @@ const calendar = () => {
   let lastDateOfLastMonth = new Date(currentYear, currentMonth, 0).getDate();
   let dateItem = "";
 
-  // ngày cuối tháng trước
   for (let i = firstDayOfMonth; i > 0; i--) {
     dateItem += `<li class="other-month">${lastDateOfLastMonth - i + 1}</li>`;
   }
@@ -63,6 +97,7 @@ const calendar = () => {
       newDate.forEach((item) => {
         item.classList.remove("current-day");
       });
+
       dayItem.classList.add("current-day");
     });
   });
@@ -97,6 +132,15 @@ document.addEventListener("wheel", (event) => {
   } else if (event.deltaY > 0) {
     changeMonth("next");
   }
+});
+
+todayButton.addEventListener("click", () => {
+  const today = new Date();
+  currentMonth = today.getMonth();
+  currentYear = today.getFullYear();
+  currentMonthSelect.value = currentMonth;
+  currentYearSelect.value = currentYear;
+  calendar();
 });
 
 function changeMonth(direction) {

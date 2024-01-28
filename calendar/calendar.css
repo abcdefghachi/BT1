@@ -7,12 +7,12 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: monospace, sans-serif;
     max-height: 70vh;
 }
 #container{
-    width: 30%;
-    background: black;
+    width: 40%;
+    background: rgb(96, 96, 96);
     color: white;
     border-radius: 10px ;
 }
@@ -27,10 +27,20 @@ header .icons span{
     padding: 10px 20px;
     cursor: pointer;
 }
+
 header .icons span:hover{
     background-color: #f2f2f2;
     color: black;
-    border-radius: 20px;
+    border-radius: 5px;
+}
+
+header #today {
+    padding: 10px;
+    font-weight: bold;
+    font-size: 15px;
+    font-family: monospace , sans-serif;
+    border: none;
+    border-radius: 5px;
 }
 #calendar {
     padding: 20px;
@@ -67,14 +77,19 @@ ul li {
     height: 40px;
     width: 40px;
     content: "";
+    transition: all 0.3s ease;
+
 }
 .days li:hover::before{
     background: #ccc;
-    color: black;
 }
 .days li.other-month{
     color: #aaa;
 }
 .days li.current-day::before{
     background: rgb(36, 152, 247);
+}
+.days li.random-day::before{
+    border: 2px solid rgb(36, 152, 247);
+    border-radius: 50%;
 }
