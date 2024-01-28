@@ -1,4 +1,4 @@
-const currentDate = document.querySelector("#current-date");
+const currentDate = document.getElementById("current-date");
 const day = document.querySelector(".days");
 const nextIcon = document.querySelectorAll(".icons span");
 const todayButton = document.getElementById("today");
@@ -71,7 +71,6 @@ const calendar = () => {
     dateItem += `<li class="other-month">${lastDateOfLastMonth - i + 1}</li>`;
   }
 
-  // ngày tháng này
   for (let i = 1; i <= lastDateOfMonth; i++) {
     let isCurrentDay =
       i === date.getDate() &&
@@ -82,7 +81,6 @@ const calendar = () => {
     dateItem += `<li class="${isCurrentDay}">${i}</li>`;
   }
 
-  // ngày đầu tháng sau
   for (let i = 1; i <= 6 - lastDayOfMonth; i++) {
     dateItem += `<li class="other-month">${i}</li>`;
   }
