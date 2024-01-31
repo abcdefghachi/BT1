@@ -17,61 +17,63 @@
 @font-face {
     font-family: 'NokiaFC22';
     src: url('fonts/nokiafc22.ttf') format('truetype');
-  }
+}
+@font-face {
+    font-family: 'SF Mono';
+    src: url('./fonts/SFMonoRegular.otf') format('truetype');
+}
+@font-face {
+    font-family: 'New York Extra Large';
+    src: url('./fonts/NewYorkExtraLargeRegular.otf') format('truetype');
+}
+@font-face {
+    font-family: 'SF Pro Text';
+    src: url('./fonts/SFPRODISPLAYREGULAR.OTF') format('truetype');
+}
 header {
-    background-color: rgb(237, 217, 43);
-    height: 300px;
+    background-color: #FFD900;
+    height: 350px;
     position: relative;
 }
 .header-content{
     position: absolute;
-    top: 30%;
+    top: 65px;
     left: 10%;        
 }
 .header-content p {
-    font-family: 'Courier New', Courier, monospace;
+    font-family: 'SF Mono' , sans-serif;
+    font-size: 20px;
+    font-weight: 400;
 }
 .header-content h1{
-    font-size: 130px;
-    margin: -20px auto;
-}
-#body-content p{
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'New York Extra Large';
+    font-size: 200px;
+    font-weight: 700;
+    margin: 0;
 }
 #body-content h1{
-    font-size: 30px;
+    font-family: 'New York Extra Large';
+    font-size: 44px;
+    font-weight: 700;
 }
 section{
     width: 70%;
-    margin-top: 50px ;
-    margin-left: 150px ;
+    margin-top: 100px ;
+    margin-left: 130px ;
 }
 .content{
-    border-left: 5px solid black;
-    padding-left: 15px;
+    font-family: 'SF Pro Text';
+    font-size: 20px;
+    font-weight: 400;
+    border-left: 6px solid black;
+    padding-left: 29px;
 }
-h2{
-    font-size: 50px;
-    margin-bottom: -10px;
-}
-.font1 h2{
-    font-family: "GFT" , sans-serif;
-}
-.font2 h2{
-    font-family: "Mackay Bold" , sans-serif;
-}
-.font3 h2{
-    font-family: "Harriet" , sans-serif;
-}
-.font4 h2 {
-    font-family: "Basis Grotesque Pro" , sans-serif;
-}
-.font5 h2{
-    font-family: 'NokiaFC22', sans-serif;    
+.font svg {
+    margin-top: 50px;
 }
 @media (max-width: 992px) {
     header{
-        height: 70vh;
+        height: 80vh;
     }
     section{
         width: 90%;
