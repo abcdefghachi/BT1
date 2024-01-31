@@ -1,5 +1,22 @@
 let xPos = 0;
 
+const cardImages = document.querySelectorAll(".ring .img");
+
+function fetchDogApi() {
+  fetch("https://dog.ceo/api/breeds/image/random/10")
+    .then((response) => response.json())
+    .then((data) => {
+      const img = data.message;
+
+      img.forEach((image, index) => {
+        cardImages[index].style.backgroundImage = `url(${image})`;
+      });
+
+      gsap.timeline().call(() => init());
+    })
+    .catch((error) => console.error("Error fetching images:", error));
+}
+
 gsap
   .timeline()
   .set(".ring", { rotationY: 180, cursor: "grab" }) //set initial rotationY so the parallax jump happens off screen
@@ -20,6 +37,7 @@ gsap
     stagger: 0.1,
     ease: "expo",
   })
+  .add(fetchDogApi)
   .add(() => {
     $(".img").on("mouseenter", (e) => {
       let current = e.currentTarget;

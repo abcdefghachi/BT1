@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fetch data</title>
+  </head>
+  <body>
+    <pre id="data"></pre>
+    <script>
+      function fetchData() {
+        return fetch("https://dog.ceo/api/breeds/image/random/10")
+          .then((response) => {
+            return response.json();
+          })
+          .catch((error) => {
+            console.error("Lỗi", error);
+          });
+      }
+      fetchData().then((data) => {
+        const jsonDataElement = document.getElementById("data");
+        jsonDataElement.textContent = JSON.stringify(data, null, 2);
+      });
+    </script>
+  </body>
+</html>

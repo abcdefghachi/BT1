@@ -256,11 +256,31 @@ const waitForImages = () => {
               opacity: 0,
               pointerEvents: "none",
             })
-            .call(() => init());
+            .call(() => {
+              fetchDogApi();
+              init();
+            });
         }
       }
     });
   });
 };
+
+function fetchDogApi() {
+  const cardImages = document.querySelectorAll(".card__image img");
+
+  fetch("https://dog.ceo/api/breeds/image/random/3")
+    .then((response) => response.json())
+    .then((data) => {
+      const images = data.message;
+
+      images.forEach((image, index) => {
+        cardImages[index].src = image;
+      });
+
+      gsap.timeline().call(() => init());
+    })
+    .catch((error) => console.error("Error fetching images:", error));
+}
 
 waitForImages();
