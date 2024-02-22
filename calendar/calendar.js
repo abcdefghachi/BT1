@@ -8,6 +8,7 @@ const monthList = document.getElementById("months");
 const yearPopup = document.getElementById("year-popup");
 const yearList = document.getElementById("years");
 
+// Display calendar
 const calendar = () => {
   currentDate.setDate(1);
 
@@ -49,15 +50,15 @@ const calendar = () => {
     "November",
     "December",
   ];
-
+  // Hiển thị năm
   document.querySelector(
     ".current-date h2"
   ).innerHTML = `${currentDate.getFullYear()}`;
-
+  // Hiển thị tháng
   document.querySelector(".current-date h1").innerHTML = `${
     months[currentDate.getMonth()]
   }`;
-
+  // Hiển thị ngày hiện tại
   document.querySelector(".current-date p").innerHTML =
     new Date().toDateString();
 
@@ -85,28 +86,13 @@ const calendar = () => {
   days.innerHTML = dateItem;
 };
 
-const handleDayClick = (clickedDay) => {
-  const currentDay = new Date().getDate();
-  const currentMonth = new Date().getMonth();
-  const currentYear = new Date().getFullYear();
-
-  if (
-    clickedDay === currentDay &&
-    currentDate.getMonth() === currentMonth &&
-    currentDate.getFullYear() === currentYear
-  ) {
-    currentDate.setFullYear(currentYear);
-    currentDate.setMonth(currentMonth);
-    calendar();
-  }
-};
-
 document.querySelector(".current-date p").addEventListener("click", () => {
   currentDate.setFullYear(new Date().getFullYear());
   currentDate.setMonth(new Date().getMonth());
   calendar();
 });
 
+// Danh sách tháng
 monthSelect.onclick = function () {
   monthPopup.style.display = "block";
 };
@@ -126,8 +112,9 @@ monthList.addEventListener("click", function (e) {
   }
 });
 
+// Danh sách năm
 yearSelect.onclick = function () {
-  renderYearList();
+  displayYearList();
   yearPopup.style.display = "block";
 };
 
@@ -146,7 +133,7 @@ yearList.addEventListener("click", function (e) {
   }
 });
 
-function renderYearList() {
+function displayYearList() {
   const currentYear = new Date().getFullYear();
   const years = [];
 
@@ -156,16 +143,19 @@ function renderYearList() {
 
   yearList.innerHTML = years.join("");
 }
-document.querySelector(".previous").addEventListener("click", () => {
+
+// Sự kiện ấn nút để chuyển tháng
+document.getElementById("previous").addEventListener("click", () => {
   currentDate.setMonth(currentDate.getMonth() - 1);
   calendar();
 });
 
-document.querySelector(".next").addEventListener("click", () => {
+document.getElementById("next").addEventListener("click", () => {
   currentDate.setMonth(currentDate.getMonth() + 1);
   calendar();
 });
 
+// Scroll
 document.querySelector(".calendar").addEventListener("wheel", (event) => {
   if (event.deltaY < 0) {
     currentDate.setMonth(currentDate.getMonth() - 1);
