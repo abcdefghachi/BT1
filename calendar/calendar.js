@@ -1,10 +1,11 @@
 const currentDate = new Date();
 
-const monthSelect = document.getElementById("current-month-selector");
-const yearSelect = document.getElementById("current-year-selector");
+const monthSelect = document.getElementById("current-month-select");
+const yearSelect = document.getElementById("current-year-select");
 
 const monthPopup = document.getElementById("month-popup");
 const monthList = document.getElementById("months");
+
 const yearPopup = document.getElementById("year-popup");
 const yearList = document.getElementById("years");
 
