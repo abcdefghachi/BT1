@@ -80,9 +80,13 @@ const calendar = () => {
     }
   }
 
-  for (let j = 1; j <= nextDate; j++) {
+  const totalDateOfMonth = lastDateOfMonth + firstDayOfMonth;
+  const dateOfNextMonth = 42 - totalDateOfMonth;
+
+  for (let j = 1; j <= dateOfNextMonth; j++) {
     dateItem += `<li class="next-date">${j}</li>`;
   }
+
   days.innerHTML = dateItem;
 };
 
